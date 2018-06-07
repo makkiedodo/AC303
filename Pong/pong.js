@@ -32,15 +32,15 @@ x: null,
 y: null,
 width: 20,
 height: 100,
-update: function(){},
+update: function(){
+	let target = ball.y - (this.height - ball.size)/2;
+	this.y += (target - this.y) *0.1;
+},
 draw: function(){
 ctx.fillRect(this.x, this.y, this.width, this.height);
 
 },
-draw: function(){
-	let target = ball.y - (this.height - ball.size)/2;
-	this.y += (target - this.y) *0.1;
-}
+	
 }
 
 var ball= {
@@ -54,7 +54,9 @@ var ball= {
 	this.x +=this. speedx;
 	this.y +=this. speedy;
 
-	if(this.y <= 0 || this.y +this.size,this.size);
+	if(this.y <= 0 || this.y +this.size >= HEIGHT){
+		this.speedy *= -1;
+	}
 
 function checkCollision(a,b){
 	return (a.x < b.x + b.width && a.y < b.y + b.height && b.x < a.x + a.size && b.y < a.y + a.size);
@@ -92,7 +94,7 @@ if(this.x + this.size <0 || this.x > WIDTH){
 
 
 	draw: function(){
-ctx.fillRect(this.x, this.y, this.width, this.height);
+ctx.fillRect(this.x, this.y, this.size, this.size);
 }
 }
 
@@ -149,7 +151,7 @@ player.update();
 function draw(){
  ctx.fillStyle = "black";
  ctx.fillRect( 0, 0, WIDTH, HEIGHT);
-ctx.fillSStyle = "white";
+ctx.fillStyle = "white";
 player.draw();
 ai.draw();
 ball.draw()
