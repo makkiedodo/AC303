@@ -1,0 +1,21 @@
+{
+	"manifest_version":2,
+	
+
+	"name": "Cyporg Pirate extension",
+	"description": "This extension will increase the awesomeness of your browser!",
+	"version": "1.0",
+
+"browser_action": {
+"default_icon": "cyborgpirate.png",
+"default_popup":"popup.html"
+},
+
+"permissions": [
+"activeTab",
+"tabs"
+
+]
+
+
+}
